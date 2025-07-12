@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMI Weekly Program Outline</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .theme {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 15px 0;
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+        }
+        
+        .date-range {
+            color: #4a5568;
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 14px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            border: none;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        
+        tr:hover {
+            background-color: #f8fafc;
+            transition: background-color 0.2s ease;
+        }
+        
+        .day-cell {
+            font-weight: 600;
+            color: #2d3748;
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+        }
+        
+        .time-cell {
+            font-weight: 500;
+            color: #4a5568;
+            background: #f9fafb;
+        }
+        
+        .activity-cell {
+            font-weight: 600;
+            color: #2b6cb0;
+        }
+        
+        .details-cell {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .notes-cell {
+            color: #718096;
+            font-style: italic;
+        }
+        
+        .copy-instructions {
+            background: #edf2f7;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .copy-instructions h3 {
+            color: #2d3748;
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
+        }
+        
+        .copy-instructions p {
+            color: #4a5568;
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+        
+        .reflection-section {
+            background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .reflection-section h4 {
+            color: #2d3748;
+            margin: 0 0 15px 0;
+            font-size: 1.1em;
+        }
+        
+        .reflection-section ul {
+            color: #4a5568;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            table {
+                font-size: 12px;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>HMI Weekly Program Outline</h1>
+            <div class="theme">Heeding the Call to Serve</div>
+            <div class="date-range">July 15-18, 2025</div>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Purpose/Action</th>
+                        <th>Details</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="day-cell"><span class="emoji">📅</span>Tuesday</td>
+                        <td>July 15</td>
+                        <td class="time-cell"><span class="emoji">🕗</span>8:30 PM</td>
+                        <td class="activity-cell">Group Voice Call</td>
+                        <td>Connect and know each other personally</td>
+                        <td class="details-cell">
+                            • Discover how each person can contribute to HMI<br>
+                            • Plan how to reach more members<br>
+                            • Review the purpose of HMI with encouragement
+                        </td>
+                        <td class="notes-cell">Foundation building session</td>
+                    </tr>
+                    <tr>
+                        <td class="day-cell"><span class="emoji">📅</span>Wednesday</td>
+                        <td>July 16</td>
+                        <td class="time-cell">All Day</td>
+                        <td class="activity-cell">Invite Day</td>
+                        <td>Share the HMI group link with friends, family, or anyone interested in making a difference</td>
+                        <td class="details-cell">
+                            • Post on WhatsApp status<br>
+                            • Share on other social media platforms<br>
+                            • Personal invitations to interested individuals
+                        </td>
+                        <td class="notes-cell">Community expansion focus</td>
+                    </tr>
+                    <tr>
+                        <td class="day-cell"><span class="emoji">📅</span>Thursday</td>
+                        <td>July 17</td>
+                        <td class="time-cell">All Day</td>
+                        <td class="activity-cell">Act of Kindness Challenge</td>
+                        <td>Do something kind for someone</td>
+                        <td class="details-cell">
+                            • Either a new act or repeat something that made you feel good before<br>
+                            • Support with photo, voice note, or video<br>
+                            • Post in group by end of day<br>
+                            • Optional: Share on socials to inspire others
+                        </td>
+                        <td class="notes-cell">Action-based engagement</td>
+                    </tr>
+                    <tr>
+                        <td class="day-cell"><span class="emoji">📅</span>Friday</td>
+                        <td>July 18</td>
+                        <td class="time-cell">All Day</td>
+                        <td class="activity-cell">Reflection & Affirmation</td>
+                        <td>Personal reflection and commitment assessment</td>
+                        <td class="details-cell">
+                            • Reflect on connecting with new people this week<br>
+                            • Assess happiness with HMI participation<br>
+                            • Evaluate readiness to keep empowering others<br>
+                            • If answers are positive: Welcome again to HMI
+                        </td>
+                        <td class="notes-cell">Week closure and commitment</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="reflection-section">
+            <h4>📝 Reflection Questions for Friday:</h4>
+            <ul>
+                <li>How did I feel connecting with new people this week?</li>
+                <li>Am I happy to be part of HMI?</li>
+                <li>Am I ready to keep empowering others in my community?</li>
+            </ul>
+            <p><strong>✅ If your answers are positive, welcome again to HMI — where we rise by helping others rise.</strong></p>
+        </div>
+               
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; color: white;">
+            <h3 style="margin: 0 0 10px 0;">🌟 Program Summary</h3>
+            <p style="margin: 0; font-size: 1.1em;">4 Days • 4 Activities • 1 Unified Purpose: Heeding the Call to Serve</p>
+        </div>
+    </div>
+</body>
+</html>
