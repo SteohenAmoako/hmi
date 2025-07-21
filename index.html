@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HMI Week 3: Team Building & Branding</title>
+  <title>HMI Weekly Program Outline</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -12,7 +12,6 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -20,20 +19,25 @@
       border-radius: 16px;
       padding: 30px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
-
+    .logo {
+      display: block;
+      margin: 0 auto 20px auto;
+      height: 80px;
+    }
     .header {
       text-align: center;
       margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid #667eea;
     }
-
     .header h1 {
       color: #2d3748;
       font-size: 2.5em;
       margin: 0;
       font-weight: 700;
     }
-
     .theme {
       background: linear-gradient(135deg, #667eea, #764ba2);
       color: white;
@@ -45,110 +49,158 @@
       margin: 15px 0;
       box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
     }
-
-    .section {
-      margin-top: 30px;
-      line-height: 1.7;
-      color: #2d3748;
+    .date-range {
+      color: #4a5568;
+      font-size: 1.1em;
+      font-weight: 500;
+      margin-top: 10px;
     }
-
-    .section h2 {
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      font-size: 14px;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 15px 12px;
+      text-align: left;
+      font-weight: 600;
+      border: none;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    tr:hover {
+      background-color: #f8fafc;
+      transition: background-color 0.2s ease;
+    }
+    .day-cell {
+      font-weight: 600;
+      color: #2d3748;
+      background: #f7fafc;
+      border-left: 4px solid #667eea;
+    }
+    .time-cell {
+      font-weight: 500;
+      color: #4a5568;
+      background: #f9fafb;
+    }
+    .activity-cell {
+      font-weight: 600;
       color: #2b6cb0;
     }
-
-    .roles-list {
-      margin-top: 10px;
-      padding-left: 20px;
+    .details-cell {
+      color: #4a5568;
+      line-height: 1.6;
     }
-
-    .roles-list li {
-      margin-bottom: 10px;
+    .notes-cell {
+      color: #718096;
+      font-style: italic;
     }
-
-    .highlight-box {
-      background: #f0f4f8;
-      padding: 20px;
-      border-left: 5px solid #667eea;
-      border-radius: 10px;
-      margin-top: 30px;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      border-radius: 12px;
-      color: white;
-    }
-
     @media (max-width: 768px) {
       .container {
         padding: 20px;
+        margin: 10px;
       }
-
       .header h1 {
         font-size: 2em;
+      }
+      table {
+        font-size: 12px;
+      }
+      th, td {
+        padding: 8px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <img src="logo.png" alt="HMI Logo" class="logo" />
     <div class="header">
-      <h1>Hands and Minds Initiative (HMI)</h1>
-      <div class="theme">Week 3: Team Building & Branding</div>
-      <p style="color: #4a5568; font-size: 1.1em;">July 22 – July 25, 2025</p>
+      <h1>HMI Weekly Program Outline</h1>
+      <div class="theme">Heeding the Call to Serve</div>
+      <div class="date-range">July 22–25, 2025</div>
     </div>
 
-    <div class="section">
-      <p><strong>Calling all passionate minds and willing hearts!</strong></p>
-      <p>As we continue to grow, we're opening up key volunteer roles in our team. Be part of something meaningful, contribute your talents, and make a lasting impact!</p>
-    </div>
-
-    <div class="section">
-      <h2>📌 Activities for the Week</h2>
-      <p><strong>1. Recruitment of Team Leads (Voluntary roles)</strong><br>
-      <em>Date: Tuesday, July 22 to Wednesday, July 23</em></p>
-
-      <p>Available Roles & Responsibilities:</p>
-      <ul class="roles-list">
-        <li><strong>Administrative Support</strong> – Reports, planning, attendance tracking</li>
-        <li><strong>Finance & Fundraising Assistant</strong> – Fund handling & fundraiser planning</li>
-        <li><strong>Welfare & Encouragement Coordinator</strong> – Morale boosting, check-ins</li>
-        <li><strong>Outreach & Mobilization Lead</strong> — Promotions & community awareness</li>
-        <li><strong>Graphics & Design Team</strong> — Posters, flyers, social media content</li>
-        <li><strong>Content Writer</strong> — Quotes, recaps, announcements</li>
-        <li><strong>Projects & Planning Assistant</strong> — Event coordination, project prep</li>
-        <li><strong>Volunteer Coordinator</strong> — Team support, tracking, engagement</li>
-        <li><strong>Feedback & Communications</strong> — Suggestions, polls, communication</li>
-        <li><strong>Media & Documentation</strong> — Photos, reels, storytelling, media cleanup</li>
-      </ul>
-
-      <p><strong>Want to join a role?</strong><br>
-        👉 DM us, email <a href="mailto:hmivolunteers@gmail.com">hmivolunteers@gmail.com</a> or comment with your role of interest!</p>
-    </div>
-
-    <div class="section highlight-box">
-      <h2>👕 T-shirt Printing Planning</h2>
-      <p><strong>Date: Thursday, July 24 (Group Voice Call)</strong></p>
-      <ul class="roles-list">
-        <li>Discuss & plan the printing of HMI T-shirts</li>
-        <li>Decide: contribute together or print & sell at discount?</li>
-        <li>Finalize designs and color choices (Purple, Green, Gold, White)</li>
-      </ul>
-
-      <p><strong>Date: Friday, July 25</strong></p>
-      <ul class="roles-list">
-        <li>Volunteer roles confirmation</li>
-        <li>Collect sizes and orders from members</li>
-      </ul>
-    </div>
-
-    <div class="footer">
-      <h3>🌟 Let's Build Together</h3>
-      <p>Hands and Minds Initiative — Growing teams, growing impact</p>
-      <p>#VolunteerMind #HandsAndMindsInitiative #TeamHMI</p>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Activity</th>
+            <th>Purpose/Action</th>
+            <th>Details</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="day-cell">📅 Tuesday</td>
+            <td>July 22</td>
+            <td class="time-cell">All Day</td>
+            <td class="activity-cell">Recruitment of Team Leads</td>
+            <td>Open volunteer roles to grow the team</td>
+            <td class="details-cell">
+              • Roles: Admin, Finance, Welfare, Outreach, Graphics, Writing, Projects, Volunteer Coordination, Feedback, Media<br />
+              • DM, email (<a href="mailto:hmivolunteers@gmail.com">hmivolunteers@gmail.com</a>) or comment to join.
+            </td>
+            <td class="notes-cell">Day 1 of team building drive</td>
+          </tr>
+          <tr>
+            <td class="day-cell">📅 Wednesday</td>
+            <td>July 23</td>
+            <td class="time-cell">All Day</td>
+            <td class="activity-cell">Team Leads Recruitment Continues</td>
+            <td>Continue building the core team</td>
+            <td class="details-cell">
+              • Role descriptions and responsibilities outlined<br />
+              • Team support, project planning, morale building
+            </td>
+            <td class="notes-cell">Ongoing engagement</td>
+          </tr>
+          <tr>
+            <td class="day-cell">📅 Thursday</td>
+            <td>July 24</td>
+            <td class="time-cell">🗣️ Group Voice Call</td>
+            <td class="activity-cell">T-shirt Printing Planning</td>
+            <td>Plan design, color and pricing approach</td>
+            <td class="details-cell">
+              • Contribute together vs print & sell at discount?<br />
+              • Finalize designs & color options: Purple, Green, Gold, White
+            </td>
+            <td class="notes-cell">Collaborative design call</td>
+          </tr>
+          <tr>
+            <td class="day-cell">📅 Friday</td>
+            <td>July 25</td>
+            <td class="time-cell">All Day</td>
+            <td class="activity-cell">Volunteer Confirmation & Orders</td>
+            <td>Finalize roles and collect t-shirt info</td>
+            <td class="details-cell">
+              • Confirm roles<br />
+              • Collect shirt sizes & orders
+            </td>
+            <td class="notes-cell">Wrap-up and readiness check</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>
