@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HMI Weekly Program Outline</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HMI Week 3: Team Building & Branding</title>
   <style>
-    /* --- [Styling remains unchanged from your provided CSS] --- */
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       margin: 0;
@@ -13,13 +12,7 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
     }
-    .logo {
-      width: 150px;
-      height: auto;
-      display: block;
-      margin: 0 auto 15px auto;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -27,20 +20,20 @@
       border-radius: 16px;
       padding: 30px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(10px);
     }
+
     .header {
       text-align: center;
       margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 3px solid #667eea;
     }
+
     .header h1 {
       color: #2d3748;
       font-size: 2.5em;
       margin: 0;
       font-weight: 700;
     }
+
     .theme {
       background: linear-gradient(135deg, #667eea, #764ba2);
       color: white;
@@ -52,198 +45,111 @@
       margin: 15px 0;
       box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
     }
-    .date-range {
-      color: #4a5568;
-      font-size: 1.1em;
-      font-weight: 500;
-      margin-top: 10px;
-    }
-    .table-container {
-      overflow-x: auto;
-      margin: 20px 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      font-size: 14px;
-    }
-    th {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 15px 12px;
-      text-align: left;
-      font-weight: 600;
-      border: none;
-      font-size: 0.9em;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    td {
-      padding: 12px;
-      border-bottom: 1px solid #e2e8f0;
-      vertical-align: top;
-      line-height: 1.5;
-    }
-    tr:hover {
-      background-color: #f8fafc;
-      transition: background-color 0.2s ease;
-    }
-    .day-cell {
-      font-weight: 600;
+
+    .section {
+      margin-top: 30px;
+      line-height: 1.7;
       color: #2d3748;
-      background: #f7fafc;
-      border-left: 4px solid #667eea;
     }
-    .time-cell {
-      font-weight: 500;
-      color: #4a5568;
-      background: #f9fafb;
-    }
-    .activity-cell {
-      font-weight: 600;
+
+    .section h2 {
       color: #2b6cb0;
     }
-    .details-cell {
-      color: #4a5568;
-      line-height: 1.6;
+
+    .roles-list {
+      margin-top: 10px;
+      padding-left: 20px;
     }
-    .notes-cell {
-      color: #718096;
-      font-style: italic;
+
+    .roles-list li {
+      margin-bottom: 10px;
     }
-    .reflection-section {
-      background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+
+    .highlight-box {
+      background: #f0f4f8;
       padding: 20px;
+      border-left: 5px solid #667eea;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
       border-radius: 12px;
-      margin: 20px 0;
+      color: white;
     }
-    .reflection-section h4 {
-      color: #2d3748;
-      margin: 0 0 15px 0;
-      font-size: 1.1em;
-    }
-    .reflection-section ul {
-      color: #4a5568;
-      line-height: 1.6;
-      margin: 10px 0;
-    }
+
     @media (max-width: 768px) {
       .container {
         padding: 20px;
-        margin: 10px;
       }
+
       .header h1 {
         font-size: 2em;
-      }
-      table {
-        font-size: 12px;
-      }
-      th, td {
-        padding: 8px;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
     <div class="header">
-      <img src="logo.png" alt="HMI Logo" class="logo" />
-      <h1>HMI Weekly Program Outline</h1>
-      <div class="theme">Heeding the Call to Serve</div>
-      <div class="date-range">July 15-18, 2025</div>
+      <h1>Hands and Minds Initiative (HMI)</h1>
+      <div class="theme">Week 3: Team Building & Branding</div>
+      <p style="color: #4a5568; font-size: 1.1em;">July 22 – July 25, 2025</p>
     </div>
 
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Activity</th>
-            <th>Purpose/Action</th>
-            <th>Details</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="day-cell"><span class="emoji">📅</span>Tuesday</td>
-            <td>July 15</td>
-            <td class="time-cell"><span class="emoji">🕗</span>8:30 PM</td>
-            <td class="activity-cell">Group Voice Call</td>
-            <td>Connect and know each other personally</td>
-            <td class="details-cell">
-              • Discover how each person can contribute to HMI<br>
-              • Plan how to reach more members<br>
-              • Review the purpose of HMI with encouragement
-            </td>
-            <td class="notes-cell">Foundation building session</td>
-          </tr>
-          <tr>
-            <td class="day-cell"><span class="emoji">📅</span>Wednesday</td>
-            <td>July 16</td>
-            <td class="time-cell">All Day</td>
-            <td class="activity-cell">Invite Day</td>
-            <td>Share the HMI group link with friends, family, or anyone interested in making a difference</td>
-            <td class="details-cell">
-              • Post on WhatsApp status<br>
-              • Share on other social media platforms<br>
-              • Personal invitations to interested individuals
-            </td>
-            <td class="notes-cell">Community expansion focus</td>
-          </tr>
-          <tr>
-            <td class="day-cell"><span class="emoji">📅</span>Thursday</td>
-            <td>July 17</td>
-            <td class="time-cell">All Day</td>
-            <td class="activity-cell">Act of Kindness Challenge</td>
-            <td>Do something kind for someone</td>
-            <td class="details-cell">
-              • Either a new act or repeat something that made you feel good before<br>
-              • Support with photo, voice note, or video<br>
-              • Post in group by end of day<br>
-              • Optional: Share on socials to inspire others
-            </td>
-            <td class="notes-cell">Action-based engagement</td>
-          </tr>
-          <tr>
-            <td class="day-cell"><span class="emoji">📅</span>Friday</td>
-            <td>July 18</td>
-            <td class="time-cell">All Day</td>
-            <td class="activity-cell">Reflection & Affirmation</td>
-            <td>Personal reflection and commitment assessment</td>
-            <td class="details-cell">
-              • Reflect on connecting with new people this week<br>
-              • Assess happiness with HMI participation<br>
-              • Evaluate readiness to keep empowering others<br>
-              • If answers are positive: Welcome again to HMI
-            </td>
-            <td class="notes-cell">Week closure and commitment</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="section">
+      <p><strong>Calling all passionate minds and willing hearts!</strong></p>
+      <p>As we continue to grow, we're opening up key volunteer roles in our team. Be part of something meaningful, contribute your talents, and make a lasting impact!</p>
     </div>
 
-    <div class="reflection-section">
-      <h4>📝 Reflection Questions for Friday:</h4>
-      <ul>
-        <li>How did I feel connecting with new people this week?</li>
-        <li>Am I happy to be part of HMI?</li>
-        <li>Am I ready to keep empowering others in my community?</li>
+    <div class="section">
+      <h2>📌 Activities for the Week</h2>
+      <p><strong>1. Recruitment of Team Leads (Voluntary roles)</strong><br>
+      <em>Date: Tuesday, July 22 to Wednesday, July 23</em></p>
+
+      <p>Available Roles & Responsibilities:</p>
+      <ul class="roles-list">
+        <li><strong>Administrative Support</strong> – Reports, planning, attendance tracking</li>
+        <li><strong>Finance & Fundraising Assistant</strong> – Fund handling & fundraiser planning</li>
+        <li><strong>Welfare & Encouragement Coordinator</strong> – Morale boosting, check-ins</li>
+        <li><strong>Outreach & Mobilization Lead</strong> — Promotions & community awareness</li>
+        <li><strong>Graphics & Design Team</strong> — Posters, flyers, social media content</li>
+        <li><strong>Content Writer</strong> — Quotes, recaps, announcements</li>
+        <li><strong>Projects & Planning Assistant</strong> — Event coordination, project prep</li>
+        <li><strong>Volunteer Coordinator</strong> — Team support, tracking, engagement</li>
+        <li><strong>Feedback & Communications</strong> — Suggestions, polls, communication</li>
+        <li><strong>Media & Documentation</strong> — Photos, reels, storytelling, media cleanup</li>
       </ul>
-      <p><strong>✅ If your answers are positive, welcome again to HMI — where we rise by helping others rise.</strong></p>
+
+      <p><strong>Want to join a role?</strong><br>
+        👉 DM us, email <a href="mailto:hmivolunteers@gmail.com">hmivolunteers@gmail.com</a> or comment with your role of interest!</p>
     </div>
 
-    <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; color: white;">
-      <h3 style="margin: 0 0 10px 0;">🌟 Program Summary</h3>
-      <p style="margin: 0; font-size: 1.1em;">4 Days • 4 Activities • 1 Unified Purpose: Heeding the Call to Serve</p>
+    <div class="section highlight-box">
+      <h2>👕 T-shirt Printing Planning</h2>
+      <p><strong>Date: Thursday, July 24 (Group Voice Call)</strong></p>
+      <ul class="roles-list">
+        <li>Discuss & plan the printing of HMI T-shirts</li>
+        <li>Decide: contribute together or print & sell at discount?</li>
+        <li>Finalize designs and color choices (Purple, Green, Gold, White)</li>
+      </ul>
+
+      <p><strong>Date: Friday, July 25</strong></p>
+      <ul class="roles-list">
+        <li>Volunteer roles confirmation</li>
+        <li>Collect sizes and orders from members</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <h3>🌟 Let's Build Together</h3>
+      <p>Hands and Minds Initiative — Growing teams, growing impact</p>
+      <p>#VolunteerMind #HandsAndMindsInitiative #TeamHMI</p>
     </div>
   </div>
-
 </body>
 </html>
