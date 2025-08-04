@@ -3,255 +3,840 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HMI Weekly Activity Schedule</title>
+  <title>HMI Drink-A-Thon Schedule</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
       min-height: 100vh;
+      padding: 10px;
     }
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
       background: rgba(255, 255, 255, 0.95);
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(15px);
+      animation: fadeIn 0.6s ease-out;
     }
-    .logo {
-      display: block;
-      margin: 0 auto 20px auto;
-      height: 80px;
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+    
     .header {
       text-align: center;
       margin-bottom: 30px;
       padding-bottom: 20px;
-      border-bottom: 3px solid #667eea;
+      border-bottom: 3px solid #4facfe;
     }
+    
     .header h1 {
       color: #2d3748;
-      font-size: 2.5em;
-      margin: 0;
+      font-size: 2.2em;
+      margin-bottom: 10px;
       font-weight: 700;
+      animation: slideDown 0.8s ease-out;
     }
+    
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
     .theme {
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
       color: white;
-      padding: 15px 30px;
+      padding: 12px 25px;
       border-radius: 50px;
       display: inline-block;
-      font-size: 1.2em;
+      font-size: 1.1em;
       font-weight: 600;
-      margin: 15px 0;
-      box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+      margin: 10px 0;
+      box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+      animation: pulse 2s infinite;
     }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
     .date-range {
       color: #4a5568;
-      font-size: 1.1em;
+      font-size: 1em;
       font-weight: 500;
       margin-top: 10px;
     }
+    
+    .goal-section {
+      background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+      border: 2px solid rgba(79, 172, 254, 0.3);
+      animation: slideUp 0.6s ease-out 0.2s both;
+    }
+    
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .goal-title {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 10px;
+    }
+    
+    .goal-content {
+      color: #4a5568;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+    
+    .day-selector {
+      display: flex;
+      gap: 8px;
+      margin: 25px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: slideUp 0.6s ease-out 0.4s both;
+    }
+    
+    .day-btn {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #e2e8f0;
+      color: #4a5568;
+      padding: 12px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9em;
+      transition: all 0.3s ease;
+      min-width: 120px;
+      text-align: center;
+    }
+    
+    .day-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
+      border-color: #4facfe;
+    }
+    
+    .day-btn.active {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      border-color: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+    }
+    
+    .content-area {
+      min-height: 400px;
+      animation: slideUp 0.6s ease-out 0.6s both;
+    }
+    
+    .day-content {
+      display: none;
+      animation: fadeInContent 0.5s ease-out;
+    }
+    
+    .day-content.active {
+      display: block;
+    }
+    
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
     .activity-section {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       margin: 20px 0;
       padding: 25px;
-      border-left: 6px solid #667eea;
+      border-left: 6px solid #4facfe;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    
+    .activity-section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    
     .activity-title {
-      font-size: 1.4em;
+      font-size: 1.3em;
       font-weight: 700;
       color: #2d3748;
       margin-bottom: 15px;
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-    .activity-meta {
-      display: flex;
       flex-wrap: wrap;
+    }
+    
+    .activity-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
       margin-bottom: 20px;
     }
+    
     .meta-item {
       display: flex;
       align-items: center;
       gap: 8px;
       font-weight: 600;
       color: #4a5568;
-      font-size: 0.95em;
+      font-size: 0.9em;
+      background: #f8fafc;
+      padding: 10px 15px;
+      border-radius: 10px;
     }
+    
     .activity-details {
       background: #f8fafc;
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 20px;
       margin: 15px 0;
     }
+    
     .details-title {
       font-weight: 700;
       color: #2b6cb0;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-size: 1.1em;
     }
+    
     .details-content {
       color: #4a5568;
       line-height: 1.6;
     }
-    .purpose-section {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-      border-radius: 8px;
-      padding: 20px;
+    
+    .post-template {
+      background: linear-gradient(135deg, #e6f7ff, #f0f9ff);
+      border: 2px dashed #4facfe;
+      border-radius: 12px;
+      padding: 18px;
       margin: 15px 0;
-    }
-    .purpose-title {
-      font-weight: 700;
-      color: #667eea;
-      margin-bottom: 10px;
-      font-size: 1.1em;
-    }
-    .purpose-content {
-      color: #2d3748;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
       line-height: 1.6;
+      position: relative;
+      overflow: hidden;
     }
-    .highlight-note {
-      background: linear-gradient(135deg, #667eea, #764ba2);
+    
+    .post-template::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+    }
+    
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .schedule-table th {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
       color: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      margin: 15px 0;
+      padding: 15px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.9em;
+    }
+    
+    .schedule-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.85em;
+    }
+    
+    .schedule-table tr:hover {
+      background: #f8fafc;
+    }
+    
+    .highlight-note {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      padding: 18px 25px;
+      border-radius: 15px;
+      margin: 25px 0;
       font-weight: 600;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+      animation: bounce 1s ease-out 1s;
     }
-    .color-options {
-      display: flex;
-      gap: 10px;
-      margin: 10px 0;
-      flex-wrap: wrap;
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
     }
-    .color-badge {
-      padding: 5px 12px;
-      border-radius: 20px;
+    
+    .day-badge {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 25px;
       font-size: 0.85em;
       font-weight: 600;
-      color: white;
+      display: inline-block;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
     }
-    .color-green { background: #38a169; }
-    .color-gold { background: #d69e2e; }
-    .color-purple { background: #9f7aea; }
-    .color-white { background: #718096; color: white; }
     
+    /* Mobile Optimizations */
     @media (max-width: 768px) {
+      body { padding: 5px; }
+      
       .container {
-        padding: 20px;
-        margin: 10px;
+        padding: 15px;
+        border-radius: 15px;
+        margin: 5px;
       }
+      
       .header h1 {
-        font-size: 2em;
+        font-size: 1.8em;
+        line-height: 1.2;
       }
+      
+      .theme {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+      
+      .goal-section {
+        padding: 15px;
+        margin: 15px 0;
+      }
+      
+      .goal-title {
+        font-size: 1.1em;
+      }
+      
+      .goal-content {
+        font-size: 0.95em;
+      }
+      
+      .day-selector {
+        gap: 6px;
+        margin: 20px 0;
+      }
+      
+      .day-btn {
+        padding: 10px 14px;
+        font-size: 0.8em;
+        min-width: 100px;
+        flex: 1;
+        max-width: 150px;
+      }
+      
       .activity-section {
-        padding: 20px;
+        padding: 18px;
+        margin: 15px 0;
+        border-radius: 12px;
       }
+      
+      .activity-title {
+        font-size: 1.2em;
+        text-align: center;
+        justify-content: center;
+      }
+      
       .activity-meta {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 10px;
       }
-      .color-options {
+      
+      .meta-item {
+        font-size: 0.85em;
+        padding: 8px 12px;
+        text-align: center;
         justify-content: center;
+      }
+      
+      .activity-details {
+        padding: 15px;
+        margin: 12px 0;
+      }
+      
+      .details-title {
+        font-size: 1em;
+        text-align: center;
+      }
+      
+      .details-content {
+        font-size: 0.9em;
+        text-align: center;
+      }
+      
+      .post-template {
+        padding: 15px;
+        font-size: 0.8em;
+        margin: 12px 0;
+      }
+      
+      .schedule-table {
+        font-size: 0.75em;
+        margin: 15px 0;
+      }
+      
+      .schedule-table th,
+      .schedule-table td {
+        padding: 8px 6px;
+      }
+      
+      .schedule-table th {
+        font-size: 0.8em;
+      }
+      
+      .highlight-note {
+        padding: 15px 20px;
+        font-size: 0.95em;
+        margin: 20px 0;
+      }
+      
+      .day-badge {
+        font-size: 0.8em;
+        padding: 6px 12px;
+        display: block;
+        text-align: center;
+        margin: 0 auto 15px auto;
+        width: fit-content;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.6em;
+      }
+      
+      .theme {
+        font-size: 0.9em;
+        padding: 8px 16px;
+      }
+      
+      .day-selector {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .day-btn {
+        width: 90%;
+        max-width: 250px;
+      }
+      
+      .activity-title {
+        font-size: 1.1em;
+      }
+      
+      .schedule-table {
+        font-size: 0.7em;
+      }
+      
+      .schedule-table th,
+      .schedule-table td {
+        padding: 6px 4px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="logo.png" alt="HMI Logo" class="logo" />
     <div class="header">
-      <h1>🗓️ HMI Weekly Activity Schedule</h1>
-      <div class="theme">Heeding the Call to Serve</div>
-      <div class="date-range">July 29–31, 2025</div>
+      <h1>🌿 HMI Drink-A-Thon Schedule</h1>
+      <div class="theme">Hydrate to Elevate – A Challenge for Better Health</div>
+      <div class="date-range">August 5th – 8th, 2025</div>
     </div>
 
-    <div class="activity-section">
-      <div class="activity-title">
-        👕 T-Shirt/Lacoste Orders Collection
+    <div class="goal-section">
+      <div class="goal-title">🎯 Program Goal</div>
+      <div class="goal-content">
+        Encourage members to drink at least <strong>8 cups (2 liters)</strong> of water daily and promote wellness through hydration.
       </div>
-      <div class="activity-meta">
-        <div class="meta-item">
-          📅 <strong>Duration:</strong> Tuesday, July 29 - Thursday, July 31
-        </div>
-        <div class="meta-item">
-          📌 <strong>Activity:</strong> Collection of orders for HMI T-shirts or Lacoste
-        </div>
-      </div>
-      
-      <div class="activity-details">
-        <div class="details-title">📍 Order Details</div>
-        <div class="details-content">
-          Members should submit their:
-          <ul style="margin: 10px 0; padding-left: 20px;">
-            <li><strong>Name</strong></li>
-            <li><strong>Size</strong></li>
-            <li><strong>Preferred color</strong> (see options below)</li>
-            <li><strong>Choice:</strong> T-shirt or Lacoste</li>
-          </ul>
+    </div>
+
+    <div class="day-selector">
+      <button class="day-btn active" onclick="showDay('overview')">📋 Overview</button>
+      <button class="day-btn" onclick="showDay('day1')">Day 1 - Aug 5</button>
+      <button class="day-btn" onclick="showDay('day2')">Day 2 - Aug 6</button>
+      <button class="day-btn" onclick="showDay('day3')">Day 3 - Aug 7</button>
+      <button class="day-btn" onclick="showDay('day4')">Day 4 - Aug 8</button>
+    </div>
+
+    <div class="content-area">
+      <!-- Overview Content -->
+      <div id="overview" class="day-content active">
+        <div class="activity-section">
+          <div class="activity-title">
+            💧 Complete Program Schedule
+          </div>
           
-          <div style="margin: 15px 0;">
-            <strong>Available Colors:</strong>
-            <div class="color-options">
-              <span class="color-badge color-green">Green</span>
-              <span class="color-badge color-gold">Gold</span>
-              <span class="color-badge color-purple">Purple</span>
-              <span class="color-badge color-white">White</span>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Activity</th>
+                <th>Day/Date</th>
+                <th>Time</th>
+                <th>Venue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Drink-A-Thon (Hydrate to Thrive)</strong></td>
+                <td>Tuesday, Aug 5th</td>
+                <td>7AM - 5PM</td>
+                <td>HMI WhatsApp Platform</td>
+              </tr>
+              <tr>
+                <td><strong>Drink-A-Thon (Hydrate to Thrive)</strong></td>
+                <td>Wednesday, Aug 6th</td>
+                <td>7AM - 5PM</td>
+                <td>HMI WhatsApp Platform</td>
+              </tr>
+              <tr>
+                <td><strong>Drink-A-Thon (Hydrate to Thrive)</strong></td>
+                <td>Thursday, Aug 7th</td>
+                <td>7AM - 5PM</td>
+                <td>HMI WhatsApp Platform</td>
+              </tr>
+              <tr>
+                <td><strong>Health Talk (Any Topic)</strong></td>
+                <td>Thursday, Aug 8th</td>
+                <td>8PM - 9PM</td>
+                <td>Zoom/WhatsApp Voice Call</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="activity-section">
+          <div class="activity-title">
+            📝 Participant Tracker Template
+          </div>
+          
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Day 1 (✔/✘)</th>
+                <th>Day 2 (✔/✘)</th>
+                <th>Day 3 (✔/✘)</th>
+                <th>Total Cups</th>
+                <th>Reflection</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bless Bawa</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Participant 2</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Participant 3</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Day 1 Content -->
+      <div id="day1" class="day-content">
+        <div class="activity-section">
+          <div class="activity-title">
+            💧 Day 1: Kickoff & Hydration Awareness
+          </div>
+          <div class="activity-meta">
+            <div class="meta-item">
+              📅 <strong>Date:</strong> Tuesday, August 5th, 2025
+            </div>
+            <div class="meta-item">
+              🕰️ <strong>Time:</strong> 7:00 AM - 5:00 PM
+            </div>
+            <div class="meta-item">
+              📱 <strong>Platform:</strong> HMI WhatsApp Group
             </div>
           </div>
           
-          <p><strong>Note:</strong> Payment information will be shared separately.</p>
+          <div class="activity-details">
+            <div class="details-title">🎯 Focus</div>
+            <div class="details-content">
+              Why hydration matters for our health and wellbeing
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">📸 Today's Activity</div>
+            <div class="details-content">
+              Take a photo with your water bottle and post it in the group
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">💭 Discussion Prompt</div>
+            <div class="details-content">
+              Share one benefit of drinking water you learned today
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">📱 WhatsApp Post Template</div>
+            <div class="post-template">
+🌀 HMI Drink-A-Thon Challenge: Day 1<br>
+Let's kickstart our wellness with a glass of water! 💧<br>
+🎯 Goal: 8 cups today<br>
+📸 Share your water bottle selfie and one benefit of hydration!<br>
+#HMIHydrateToElevate #Day1Challenge
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="highlight-note">
-        📝 Let's all place our orders on time to avoid missing out!
+      <!-- Day 2 Content -->
+      <div id="day2" class="day-content">
+        <div class="activity-section">
+          <div class="activity-title">
+            💪 Day 2: Tracking & Consistency
+          </div>
+          <div class="activity-meta">
+            <div class="meta-item">
+              📅 <strong>Date:</strong> Wednesday, August 6th, 2025
+            </div>
+            <div class="meta-item">
+              🕰️ <strong>Time:</strong> 7:00 AM - 5:00 PM
+            </div>
+            <div class="meta-item">
+              📱 <strong>Platform:</strong> HMI WhatsApp Group
+            </div>
+          </div>
+          
+          <div class="activity-details">
+            <div class="details-title">🎯 Focus</div>
+            <div class="details-content">
+              Staying consistent with water intake throughout the day
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">📊 Today's Activity</div>
+            <div class="details-content">
+              Share a short hydration tip + update your tracker for today
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">💭 Discussion Prompt</div>
+            <div class="details-content">
+              What helps you remember to drink water during the day?
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">📱 WhatsApp Post Template</div>
+            <div class="post-template">
+🌀 HMI Drink-A-Thon Challenge: Day 2<br>
+Keep those sips going! 💦<br>
+💡 Share a hydration tip and mark your tracker for today.<br>
+How are you staying consistent?<br>
+#HMIHydrateToElevate #Day2Challenge
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3 Content -->
+      <div id="day3" class="day-content">
+        <div class="activity-section">
+          <div class="activity-title">
+            🎉 Day 3: Reflection & Celebration
+          </div>
+          <div class="activity-meta">
+            <div class="meta-item">
+              📅 <strong>Date:</strong> Thursday, August 7th, 2025
+            </div>
+            <div class="meta-item">
+              🕰️ <strong>Time:</strong> 7:00 AM - 5:00 PM
+            </div>
+            <div class="meta-item">
+              📱 <strong>Platform:</strong> HMI WhatsApp Group
+            </div>
+          </div>
+          
+          <div class="activity-details">
+            <div class="details-title">🎯 Focus</div>
+            <div class="details-content">
+              Lessons learned from the 3-day hydration challenge
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">🏆 Today's Activity</div>
+            <div class="details-content">
+              Post your completed tracker & celebrate with a selfie
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">💭 Discussion Prompt</div>
+            <div class="details-content">
+              How do you plan to stay hydrated beyond the challenge?
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">📱 WhatsApp Post Template</div>
+            <div class="post-template">
+🌀 HMI Drink-A-Thon Challenge: Day 3<br>
+Final lap! 🎉<br>
+Let's celebrate the journey – post your completed tracker and hydration selfie!<br>
+How will you keep this habit alive?<br>
+#HMIHydrateToElevate #ChallengeComplete
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 4 Content -->
+      <div id="day4" class="day-content">
+        <div class="activity-section">
+          <div class="activity-title">
+            🎤 Health Talk Session
+          </div>
+          <div class="activity-meta">
+            <div class="meta-item">
+              📅 <strong>Date:</strong> Thursday Evening, August 8th, 2025
+            </div>
+            <div class="meta-item">
+              🕰️ <strong>Time:</strong> 8:00 PM - 9:00 PM
+            </div>
+            <div class="meta-item">
+              📱 <strong>Platform:</strong> Zoom / WhatsApp Voice Call
+            </div>
+          </div>
+          
+          <div class="activity-details">
+            <div class="details-title">🎯 Topic</div>
+            <div class="details-content">
+              Any health topic of your choice - open discussion format
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">📞 Joining Information</div>
+            <div class="details-content">
+              <p><strong>Primary:</strong> Zoom meeting link will be shared 30 minutes before the session</p>
+              <p><strong>Alternative:</strong> HMI WhatsApp group voice call as backup option</p>
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">💡 Session Format</div>
+            <div class="details-content">
+              <ul style="margin: 10px 0; padding-left: 20px;">
+                <li>Open discussion on health topics</li>
+                <li>Share insights from the Drink-A-Thon experience</li>
+                <li>Q&A session with health tips</li>
+                <li>Planning for future wellness activities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="activity-section">
-      <div class="activity-title">
-        🎯 Team Leads Orientation Session
-      </div>
-      <div class="activity-meta">
-        <div class="meta-item">
-          📅 <strong>Date:</strong> Thursday, July 31
-        </div>
-        <div class="meta-item">
-          🕔 <strong>Time:</strong> 5:00 PM
-        </div>
-        <div class="meta-item">
-          📍 <strong>Platform:</strong> Zoom or HMI Team Leads WhatsApp group call
-        </div>
-      </div>
-      
-      <div class="activity-details">
-        <div class="details-content">
-          <p><em>Link will be shared closer to time</em></p>
-        </div>
-      </div>
-
-      <div class="purpose-section">
-        <div class="purpose-title">🎯 Purpose</div>
-        <div class="purpose-content">
-          <ul style="margin: 10px 0; padding-left: 20px; list-style: none;">
-            <li>✅ Understand your roles and responsibilities</li>
-            <li>✅ Align on HMI's mission, values, and upcoming tasks</li>
-            <li>✅ Get equipped to lead your teams effectively</li>
-          </ul>
-        </div>
-      </div>
+    <div class="highlight-note">
+      💧 Let's make hydration a habit that lasts beyond these 4 days! #HydrateToElevate
     </div>
   </div>
+
+  <script>
+    function showDay(dayId) {
+      // Hide all day contents
+      const allContents = document.querySelectorAll('.day-content');
+      allContents.forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Remove active class from all buttons
+      const allButtons = document.querySelectorAll('.day-btn');
+      allButtons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Show selected day content
+      document.getElementById(dayId).classList.add('active');
+      
+      // Add active class to clicked button
+      event.target.classList.add('active');
+      
+      // Smooth scroll to content area on mobile
+      if (window.innerWidth <= 768) {
+        document.querySelector('.content-area').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    
+    // Add loading animation
+    window.addEventListener('load', function() {
+      document.body.style.opacity = '1';
+    });
+    
+    // Add touch feedback for mobile
+    if ('ontouchstart' in window) {
+      const buttons = document.querySelectorAll('.day-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('touchstart', function() {
+          this.style.transform = 'scale(0.95)';
+        });
+        btn.addEventListener('touchend', function() {
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 100);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
