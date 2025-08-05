@@ -470,7 +470,7 @@
     <div class="header">
       <h1>🌿 HMI Drink-A-Thon Schedule</h1>
       <div class="theme">Hydrate to Elevate – A Challenge for Better Health</div>
-      <div class="date-range">August 5th – 8th, 2025</div>
+      <div class="date-range">August 5th – 7th, 2025</div>
     </div>
 
     <div class="goal-section">
@@ -481,11 +481,11 @@
     </div>
 
     <div class="day-selector">
-      <button class="day-btn active" onclick="showDay('overview')">📋 Overview</button>
-      <button class="day-btn" onclick="showDay('day1')">Day 1 - Aug 5</button>
-      <button class="day-btn" onclick="showDay('day2')">Day 2 - Aug 6</button>
-      <button class="day-btn" onclick="showDay('day3')">Day 3 - Aug 7</button>
-      <button class="day-btn" onclick="showDay('day4')">Day 4 - Aug 8</button>
+      <button class="day-btn active" onclick="showDay('overview', this)">📋 Overview</button>
+      <button class="day-btn" onclick="showDay('day1', this)">Day 1 - Aug 5</button>
+      <button class="day-btn" onclick="showDay('day2', this)">Day 2 - Aug 6</button>
+      <button class="day-btn" onclick="showDay('day3', this)">Day 3 - Aug 7</button>
+      <button class="day-btn" onclick="showDay('health-talk', this)">Health Talk - Aug 8</button>
     </div>
 
     <div class="content-area">
@@ -525,7 +525,7 @@
                 <td>HMI WhatsApp Platform</td>
               </tr>
               <tr>
-                <td><strong>Health Talk (Any Topic)</strong></td>
+                <td><strong>Health Talk: Understanding Monkey Pox</strong></td>
                 <td>Thursday, Aug 8th</td>
                 <td>8PM - 9PM</td>
                 <td>Zoom/WhatsApp Voice Call</td>
@@ -660,7 +660,7 @@ Let's kickstart our wellness with a glass of water! 💧<br>
           <div class="activity-details">
             <div class="details-title">📊 Today's Activity</div>
             <div class="details-content">
-              Share a short hydration tip + update your tracker for today
+              Build a personal tracker for your three day hydration journey to stay consistent with the course. Share a short hydration tip + update your tracker for today.
             </div>
           </div>
 
@@ -736,11 +736,11 @@ How will you keep this habit alive?<br>
         </div>
       </div>
 
-      <!-- Day 4 Content -->
-      <div id="day4" class="day-content">
+      <!-- Health Talk Content -->
+      <div id="health-talk" class="day-content">
         <div class="activity-section">
           <div class="activity-title">
-            🎤 Health Talk Session
+            🩺 Health Talk: Understanding Monkey Pox
           </div>
           <div class="activity-meta">
             <div class="meta-item">
@@ -755,9 +755,17 @@ How will you keep this habit alive?<br>
           </div>
           
           <div class="activity-details">
-            <div class="details-title">🎯 Topic</div>
+            <div class="details-title">🎤 Guest Speaker</div>
             <div class="details-content">
-              Any health topic of your choice - open discussion format
+              <strong>Sarah Ayinbomah Akolgo</strong><br>
+              Medical Student at University of Ghana, Legon
+            </div>
+          </div>
+
+          <div class="activity-details">
+            <div class="details-title">📚 Topic Focus</div>
+            <div class="details-content">
+              Understanding Monkey Pox - comprehensive discussion on symptoms, prevention, and current health guidelines
             </div>
           </div>
 
@@ -769,74 +777,90 @@ How will you keep this habit alive?<br>
             </div>
           </div>
 
-          <div class="activity-details">
-            <div class="details-title">💡 Session Format</div>
-            <div class="details-content">
-              <ul style="margin: 10px 0; padding-left: 20px;">
-                <li>Open discussion on health topics</li>
-                <li>Share insights from the Drink-A-Thon experience</li>
-                <li>Q&A session with health tips</li>
-                <li>Planning for future wellness activities</li>
-              </ul>
-            </div>
+          <div class="highlight-note">
+            🚨 Don't miss out!!!! This is an important health education session.
           </div>
         </div>
       </div>
     </div>
 
     <div class="highlight-note">
-      💧 Let's make hydration a habit that lasts beyond these 4 days! #HydrateToElevate
+      💧 Let's make hydration a habit that lasts beyond these 3 days! #HydrateToElevate
     </div>
   </div>
 
   <script>
-    function showDay(dayId) {
-      // Hide all day contents
-      const allContents = document.querySelectorAll('.day-content');
-      allContents.forEach(content => {
-        content.classList.remove('active');
-      });
-      
-      // Remove active class from all buttons
-      const allButtons = document.querySelectorAll('.day-btn');
-      allButtons.forEach(btn => {
-        btn.classList.remove('active');
-      });
-      
-      // Show selected day content
-      document.getElementById(dayId).classList.add('active');
-      
-      // Add active class to clicked button
-      event.target.classList.add('active');
-      
-      // Smooth scroll to content area on mobile
-      if (window.innerWidth <= 768) {
-        document.querySelector('.content-area').scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+    function showDay(dayId, clickedButton) {
+      try {
+        // Hide all day contents
+        const allContents = document.querySelectorAll('.day-content');
+        allContents.forEach(content => {
+          if (content) {
+            content.classList.remove('active');
+          }
         });
+        
+        // Remove active class from all buttons
+        const allButtons = document.querySelectorAll('.day-btn');
+        allButtons.forEach(btn => {
+          if (btn) {
+            btn.classList.remove('active');
+          }
+        });
+        
+        // Show selected day content
+        const targetContent = document.getElementById(dayId);
+        if (targetContent) {
+          targetContent.classList.add('active');
+        }
+        
+        // Add active class to clicked button
+        if (clickedButton) {
+          clickedButton.classList.add('active');
+        } else if (event && event.target) {
+          event.target.classList.add('active');
+        }
+        
+        // Smooth scroll to content area on mobile
+        if (window.innerWidth <= 768) {
+          const contentArea = document.querySelector('.content-area');
+          if (contentArea) {
+            contentArea.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      } catch (error) {
+        console.error('Error in showDay function:', error);
       }
     }
     
     // Add loading animation
     window.addEventListener('load', function() {
-      document.body.style.opacity = '1';
+      if (document.body) {
+        document.body.style.opacity = '1';
+      }
     });
     
     // Add touch feedback for mobile
-    if ('ontouchstart' in window) {
-      const buttons = document.querySelectorAll('.day-btn');
-      buttons.forEach(btn => {
-        btn.addEventListener('touchstart', function() {
-          this.style.transform = 'scale(0.95)';
+    document.addEventListener('DOMContentLoaded', function() {
+      if ('ontouchstart' in window) {
+        const buttons = document.querySelectorAll('.day-btn');
+        buttons.forEach(btn => {
+          if (btn) {
+            btn.addEventListener('touchstart', function() {
+              this.style.transform = 'scale(0.95)';
+            });
+            btn.addEventListener('touchend', function() {
+              setTimeout(() => {
+                this.style.transform = '';
+              }, 100);
+            });
+          }
         });
-        btn.addEventListener('touchend', function() {
-          setTimeout(() => {
-            this.style.transform = '';
-          }, 100);
-        });
-      });
-    }
+      }
+    });
   </script>
 </body>
 </html>
